@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="id"><head><meta charset="utf-8"><title>UNIT B</title>
+<meta name="color-scheme" content="light"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Sans:wght@400;500;700&display=swap">
+<style>
+:root{--bg:#f2f2f0;--br:#fff;--wm:#16130f;--rd:#c8321f;--mu:#7b756c;--o1:#f3c9b8;--o2:#e2e2de;--ln:#16130f26;color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box;margin:0}html.lenis,html.lenis body{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!important}.lenis.lenis-stopped{overflow:hidden}html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;-webkit-tap-highlight-color:transparent;background:var(--bg);color:var(--wm);font:400 16px/1.6 'DM Sans',system-ui,sans-serif;overflow-x:hidden}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+h1,h2,h3{font-family:Anton,Impact,'Arial Narrow',sans-serif;font-weight:400;letter-spacing:.02em;line-height:.95;text-transform:uppercase}
+[contenteditable]{outline:0}body.adm [contenteditable]{border-bottom:1px dashed var(--mu)}[contenteditable]:empty:before{content:attr(data-ph);color:var(--mu)}
+#bgfx{position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(900px 600px at 8% 4%,rgba(255,255,255,.9),transparent 65%),radial-gradient(900px 700px at 95% 95%,rgba(205,208,214,.55),transparent 65%),radial-gradient(700px 500px at 90% 8%,rgba(240,185,163,.18),transparent 70%)}
+#glow{position:fixed;left:0;top:0;width:60vmax;height:60vmax;margin:-30vmax;border-radius:50%;background:radial-gradient(circle,rgba(200,50,31,.12),transparent 60%);pointer-events:none;z-index:1}
+.sp .w{display:inline-block;white-space:nowrap;overflow:hidden;vertical-align:top;padding:0 .04em .1em}.sp .w i{display:inline-block;font-style:normal}.sp .w+.w{margin-left:.2em}
+.ao{display:none!important}body.adm .ao{display:inline-block!important}
+.btn{padding:12px 22px;border-radius:99px;border:1px solid var(--ln);font-size:13px;letter-spacing:.12em;text-transform:uppercase;transition:.3s}.btn:hover{background:var(--wm);color:var(--bg)}.btn.r{background:var(--rd);border-color:var(--rd);color:#fff}.btn.r:hover{background:var(--wm);color:var(--bg);border-color:var(--wm)}
+/* hero stack (fixed) */
+#orbw{position:fixed;inset:0;display:grid;place-items:center;pointer-events:none;z-index:0}
+.orb{width:min(60vw,680px);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 35% 35%,var(--o1),var(--o2) 55%,transparent 70%);opacity:.8}
+#stack{position:fixed;inset:0;z-index:30;pointer-events:none}
+#sbg{position:absolute;left:0;right:0;top:0;height:30vh;background:rgba(242,242,240,.4);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);-webkit-mask-image:linear-gradient(#000 68%,transparent);mask-image:linear-gradient(#000 68%,transparent);opacity:0;will-change:opacity}
+#s1,#s2{position:absolute;left:50%;top:50%;white-space:nowrap;text-align:center}
+#s1{font-size:clamp(90px,22vw,340px)}#s2{font-size:clamp(70px,19vw,280px);color:var(--rd)}
+#tagw{position:absolute;left:0;right:0;top:calc(50% + clamp(50px,11vw,170px) + 12px);text-align:center}
+#tag{font-size:clamp(12px,2.1vw,24px);letter-spacing:.3em;font-weight:500;text-transform:uppercase;padding-left:.3em}
+#hint{position:absolute;left:50%;bottom:calc(4vh + env(safe-area-inset-bottom,0px));transform:translateX(-50%);pointer-events:auto}
+.hi{display:flex;flex-direction:column;align-items:center;gap:6px;font-size:11px;letter-spacing:.32em;padding-left:.32em;cursor:pointer}.hi svg{animation:dn 1.7s ease-in-out infinite}
+@keyframes dn{0%,100%{transform:translateY(0);opacity:.45}50%{transform:translateY(8px);opacity:1}}
+#spacer{height:140vh}
+/* team */
+#team{position:relative;z-index:2;padding:var(--top,36vh) 5vw 14vh;perspective:1400px}
+.tg{--g:22px;--c:5;max-width:1200px;margin:0 auto;perspective:1300px}.rw{display:flex;justify-content:center;gap:var(--g);margin-bottom:6vh}.rw.k .tw{width:clamp(200px,26vw,300px)}.rw.p .tw{width:clamp(150px,20vw,240px)}.rw.m{display:grid;grid-template-columns:repeat(var(--c),1fr);margin-bottom:0}
+.kl{display:flex;align-items:center;gap:16px;width:min(480px,100%);margin:0 auto 4vh;color:var(--rd)}.kl span{flex:1;height:1px;background:var(--rd)}.kl small{letter-spacing:.34em;font-size:12px;font-weight:700;text-transform:uppercase;white-space:nowrap}
+@media(max-width:1000px){.tg{--c:4}}@media(max-width:760px){.tg{--c:3;--g:14px}}@media(max-width:480px){.tg{--c:2;--g:12px}}
+.tw{will-change:transform,opacity}#s1,#s2,#orbw{will-change:transform}
+.mc{position:relative;border-radius:14px;overflow:hidden;background:var(--br);box-shadow:0 22px 36px -18px #0007,0 0 0 1px var(--ln);cursor:pointer;transform-style:preserve-3d}
+.mc:before{content:"";position:absolute;inset:0;z-index:3;pointer-events:none;background:radial-gradient(circle at var(--mx,50%) var(--my,0%),#ffffff55,transparent 55%);opacity:0;transition:opacity .3s}.mc:hover:before{opacity:.5}
+.im{background-size:cover;background-position:center;display:grid;place-items:center;font:400 52px Anton;color:#16130f50;transition:transform .8s}.mc .im{aspect-ratio:3/4}.mc:hover .im{transform:scale(1.08)}
+.mc h4{position:absolute;left:0;right:0;bottom:0;padding:40px 12px 12px;color:#fff;background:linear-gradient(transparent,#000c);font-size:14px;line-height:1.25}.mc h4 b{display:block}.mc h4 span{display:block;margin-top:3px;font-size:.72em;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:#f4b5a5}
+.ed,.ed2,.ac button{display:none;position:absolute;z-index:5;width:34px;height:34px;border-radius:50%;background:#000a;color:#fff;font-size:15px;transition:.3s}.ed{top:8px;right:8px}.ed:hover,.ed2:hover,.ac button:hover{background:var(--rd)}body.adm .ed,body.adm .ed2,body.adm .ac button{display:block}
+/* sections */
+.sec{position:relative;z-index:2;padding:14vh 5vw}
+.lbl{display:flex;align-items:center;gap:18px;margin-bottom:6vh;color:var(--rd)}.lbl small{letter-spacing:.34em;font-size:12px;font-weight:700;white-space:nowrap}.lbl .ln2{flex:1;max-width:420px}
+.ln2{display:block;height:1px;background:var(--rd)}
+.big{font-size:clamp(38px,7vw,110px)}.big em{color:var(--rd);font-style:normal}
+.vm{display:grid;grid-template-columns:1fr 1.2fr;gap:6vw}
+.vt{font:400 clamp(22px,3vw,40px)/1.35 'DM Sans';margin-top:3vh;font-weight:500}
+.mm2 ol{list-style:none;margin:3vh 0 20px}.mm2 li{position:relative;display:grid;grid-template-columns:70px 1fr;padding:22px 40px 22px 0;align-items:start}.mm2 li .ln2{position:absolute;left:0;right:0;top:0;background:var(--ln)}
+.mm2 li b{font:400 38px Anton;color:var(--rd)}.mm2 li p{font-size:clamp(16px,1.6vw,21px);padding-top:6px}.ed2{right:0;top:20px;width:28px;height:28px;font-size:12px}
+.bar{display:flex;gap:10px;margin:3vh 0}
+.ka{margin-top:12vh}.ke{display:grid;grid-template-columns:1.1fr 1fr;gap:5vw;align-items:center;margin-top:8vh;cursor:pointer}.ke:nth-child(even) .kc2{order:2}
+.kc2{position:relative;aspect-ratio:4/3;border-radius:14px;overflow:hidden}.kc2 .im{position:absolute;inset:0;font-size:80px}.ke:hover .kc2 .im{transform:scale(1.08)}
+.cnt{position:absolute;left:14px;bottom:14px;z-index:2;background:#000a;color:#fff;font-size:11px;letter-spacing:.2em;text-transform:uppercase;padding:6px 12px;border-radius:99px;backdrop-filter:blur(6px)}
+.kt small,.ah small,.mg small{color:var(--rd);letter-spacing:.2em;font-size:11px;text-transform:uppercase;font-weight:700}.kt h3{font-size:clamp(30px,4.4vw,64px);margin:10px 0 14px}.kt p{color:var(--mu);max-width:520px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.th3{display:flex;gap:8px;margin:20px 0}.th3 span{width:56px;height:56px;border-radius:10px;background-size:cover;background-position:center;transition:transform .4s}.ke:hover .th3 span{transform:translateY(-6px)}.ke:hover .th3 span:nth-child(2){transition-delay:.05s}.ke:hover .th3 span:nth-child(3){transition-delay:.1s}.ke:hover .th3 span:nth-child(4){transition-delay:.15s}
+.more{font-size:12px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;display:inline-flex;gap:10px;transition:.4s}.more i{font-style:normal}.ke:hover .more{gap:22px;color:var(--rd)}.em{color:var(--mu);margin-top:6vh}
+footer{position:relative;z-index:2;text-align:center;padding:10vh 5vw 14vh}footer small{display:block;letter-spacing:.3em;font-size:11px;color:var(--mu)}
+.up{display:inline-flex;flex-direction:column;align-items:center;gap:6px;margin-top:2vh;transition:.5s}.up .ar{display:grid;place-items:center;width:84px;height:84px;border-radius:50%;border:1px solid var(--wm);font-size:34px;animation:up 1.8s ease-in-out infinite;transition:.4s}.up b{font:400 clamp(30px,6vw,80px)/1 Anton;text-transform:uppercase}.up:hover .ar{background:var(--rd);border-color:var(--rd);color:#fff}.up:hover b{color:var(--rd)}
+@keyframes up{50%{transform:translateY(-12px)}}
+/* avatar */
+.av{position:fixed;top:calc(12px + env(safe-area-inset-top,0px));right:4vw;z-index:60;width:42px;height:42px;border-radius:50%;background:var(--wm);color:var(--bg);display:grid;place-items:center;transition:.3s}.av:hover{background:var(--rd);color:#fff}body.adm .av{box-shadow:0 0 0 3px var(--bg),0 0 0 5px var(--rd)}
+/* modal */
+.modal{position:fixed;inset:0;z-index:90;display:grid;place-items:center;background:rgba(22,19,15,.38);background:color-mix(in srgb,var(--bg) 45%,transparent);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);padding:4vw}
+.mb{position:relative;width:min(1000px,100%);max-height:88vh;overflow:auto;display:grid;grid-template-columns:1.2fr 1fr;background:var(--br);border-radius:16px;box-shadow:0 40px 80px #0004}
+.mb .tx{padding:6vh 32px;display:flex;flex-direction:column;justify-content:center;gap:14px}.mb h2{font-size:clamp(34px,5vw,60px)}.mb .d{color:var(--mu)}
+.mm{display:block;width:min(400px,100%);aspect-ratio:3/4;max-height:88vh;overflow:hidden;background:#222}.mm .im{position:absolute;inset:0;width:100%;height:100%;aspect-ratio:auto;font-size:120px;place-items:start center;padding-top:20%}
+.mm .tx{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:110px 22px 22px;background:linear-gradient(transparent,rgba(0,0,0,.88));color:#fff;gap:8px;justify-content:flex-end}.mm .tx small{color:#f4b5a5;letter-spacing:.2em;text-transform:uppercase;font-size:11px;font-weight:700}.mm h2{font-size:clamp(30px,6vw,46px);color:#fff}.mm .d{color:rgba(255,255,255,.82);font-size:14px;line-height:1.5}
+.igr{display:flex;align-items:center;gap:10px;margin-top:4px}.igl,.igi{display:grid;place-items:center;width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,.18);color:#fff;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);transition:.3s;flex:none}.igl:hover{background:var(--rd);transform:translateY(-3px)}.igr b{color:#fff;min-width:110px;border-bottom:1px dashed rgba(255,255,255,.6);font-weight:500}.mm .btn{border-color:rgba(255,255,255,.5);color:#fff;padding:9px 16px;font-size:11px;align-self:flex-start}
+.lm{grid-template-columns:1fr;width:min(460px,100%)}.lm .tx{padding:44px 28px 30px}.lm .tx>small{color:var(--rd);letter-spacing:.2em}
+.fl{display:flex;flex-direction:column;gap:6px}.fl span{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--mu)}
+.lm input,.lm textarea{display:block;width:100%;padding:13px 16px;border-radius:12px;border:1px solid var(--ln);background:var(--bg);font:inherit;font-size:16px;color:var(--wm);outline:0;user-select:text;-webkit-user-select:text}.lm input:focus,.lm textarea:focus{border-color:var(--rd)}.lm .btn{align-self:flex-start}
+.pr2{display:flex;gap:10px;align-items:flex-start}.pr2 img{width:64px;height:64px;object-fit:cover;border-radius:10px}.pr2 div{flex:1;display:flex;flex-direction:column;gap:6px}#al{display:flex;flex-direction:column;gap:12px}
+.bkm{position:absolute;top:12px;left:12px;z-index:6;width:42px;height:42px;border-radius:50%;background:var(--br);color:var(--wm);box-shadow:0 2px 12px #0004;font-size:20px;transition:.3s}.bkm:hover{background:var(--rd);color:#fff;transform:translateX(-3px)}
+.pn{display:flex;gap:10px;margin-top:6px}
+/* activity page (majalah) */
+#act{position:fixed;inset:0;z-index:70;background:var(--bg);overflow:auto;padding:12vh 6vw 10vh}
+#act .bkm.fx{position:fixed;top:calc(14px + env(safe-area-inset-top,0px));left:4vw}
+.ah{max-width:1100px;margin:0 auto 8vh;border-bottom:3px solid var(--wm);padding-bottom:4vh}.ah h1,.ah .kh{font-size:clamp(44px,9vw,140px);margin-top:12px}
+.mg{max-width:1100px;margin:0 auto 12vh;display:grid;grid-template-columns:1.25fr 1fr;gap:5vw;align-items:center}.mg.alt{grid-template-columns:1fr 1.25fr}.mg.alt .rev{order:2}
+.mg.lead{grid-template-columns:1fr;gap:3vh}.mg.lead .rev{aspect-ratio:16/9}.mg.lead figcaption{display:grid;grid-template-columns:1fr 1.2fr;gap:5vw;align-items:start}
+.rev{position:relative;aspect-ratio:4/5;border-radius:6px;overflow:hidden}.rev .im{position:absolute;inset:0;font-size:90px}.mg .rev .im{inset:-9% 0;height:118%;will-change:transform}
+.mg h3{font-size:clamp(26px,3.6vw,52px);margin:8px 0 14px}.mg p{color:var(--mu);font-size:17px;line-height:1.75;white-space:pre-wrap}.mg p:first-letter{font:400 3.4em/.8 Anton;float:left;padding:6px 10px 0 0;color:var(--rd)}
+.ac{inset:0;position:absolute;z-index:5;pointer-events:none}.ac button{pointer-events:auto;top:10px;right:10px}.ac button:first-child{right:52px}
+.ab,.afoot{max-width:1100px;margin:0 auto 8vh;display:flex;gap:10px;flex-wrap:wrap}.afoot{justify-content:center;margin-bottom:0}
+#pg{position:fixed;left:0;top:0;height:3px;width:100%;background:var(--rd);transform:scaleX(0);transform-origin:left;z-index:65}
+.mm2 li p{transition:transform .5s}.mm2 li:hover p{transform:translateX(12px)}
+@media(hover:none){#glow{display:none}}
+#toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:var(--wm);color:var(--bg);padding:10px 18px;border-radius:99px;z-index:120;opacity:0;pointer-events:none}
+@media(max-width:800px){.vm,.ke,.mg,.mg.alt,.mg.lead figcaption{grid-template-columns:1fr}.ke:nth-child(even) .kc2,.mg.alt .rev{order:0}.mb{grid-template-columns:1fr}.mg.lead .rev{aspect-ratio:4/3}}
+</style></head><body>
+<div id="bgfx"></div><div id="pg"></div><div id="glow"></div>
+<button class="av" data-login aria-label="Masuk admin"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8z"/></svg></button>
+<div id="orbw"><div class="orb"></div></div>
+<div id="stack"><div id="sbg"></div><h1 id="s1" class="sp"></h1><h2 id="s2" class="sp"></h2>
+<div id="tagw"><p id="tag">Administrasi Publik 25</p></div>
+<div id="hint"><div class="hi" data-hint><span>SCROLL</span><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l6 6 6-6"/><path d="M6 13l6 6 6-6"/></svg></div></div></div>
+<main><div id="spacer"></div>
+<section id="team"><div class="tg" id="grid"></div></section>
+<section id="visi" class="sec"></section>
+<section id="keg" class="sec"><div class="lbl rv"><span class="ln2"></span><small>KEGIATAN</small></div><h2 class="big sp" id="kh"></h2><div class="bar"><button class="btn r ao" data-addk>+ Tambah kegiatan</button></div><div id="kl"></div></section>
+<footer><small class="rv">SUDAH SAMPAI BAWAH</small><button class="up rv" id="up"><span class="ar">&uarr;</span><b>Kembali ke atas</b></button></footer></main>
+<div id="toast"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.20/dist/lenis.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+gsap.registerPlugin(ScrollTrigger);
+/* ===== KONFIGURASI ===== */
+const MEMBERS=['Alifah Mumtazah','Difa Amelia','Faradisa Salsabila','Fatia Tunnisa','Kafka Nafisa','Muhammad Adam Sanjaya','Munira Muhirah','Nadia Riska Salsabila','Nadira Raysa','Nargis Fidella','Naysya Dilla Kinaya','Putri Audya','Putri Balqis','Tina Fitriana','Tri Andini'];
+const ROLE={'Muhammad Adam Sanjaya':'Komting','Faradisa Salsabila':'Bendahara','Nargis Fidella':'Sekretaris'};
+const SUPABASE_URL='https://iivavouxbutqezdwdxnz.supabase.co';
+const SUPABASE_KEY='sb_publishable_IAxERLMZlPD9y6igM07IeQ_ZY6prkJN';
+const ADMIN_UID='41e4f830-5fb5-4842-affd-f415464babe7';
+const db=window.supabase.createClient(SUPABASE_URL,SUPABASE_KEY);
+let currentUser=null, saveTimer=null, remoteReady=false;
+/* ===== DATA ===== */
+const $=(s,e=document)=>e.querySelector(s),$$=(s,e=document)=>[...e.querySelectorAll(s)];
+const esc=s=>String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+let ADM=false;
+let S={};try{S=JSON.parse(localStorage.getItem('ub-v2')||localStorage.getItem('ub-v1'))||{}}catch(e){S={}}
+S.m=S.m||{};S.b=S.b||{};S.g=S.g||{};
+S.v=S.v||{visi:'Menjadi unit yang kompak, berintegritas, dan berkarya bersama untuk pelayanan publik yang lebih baik. (Klik teks ini saat mode admin untuk mengubah.)',misi:['Membangun kolaborasi yang saling menguatkan antar anggota.','Menjalankan kegiatan yang bermanfaat bagi kampus dan masyarakat.','Mendokumentasikan setiap langkah agar menjadi cerita yang berkesan.']};
+const lorem='Tulis keterangan foto di sini: apa yang terjadi, siapa yang terlibat, dan kesan dari momen ini.';
+S.k=S.k||[{id:'k1',t:'Kegiatan Pertama',d:'Tanggal kegiatan',ph:[{img:'',h:'Judul foto utama',x:lorem},{img:'',h:'Judul foto kedua',x:lorem},{img:'',h:'Judul foto ketiga',x:lorem}]}];
+async function uploadImages(value){
+ if(typeof value==='string' && value.startsWith('data:image/')){
+  const parts=value.split(','); const mime=(parts[0].match(/data:(.*?);/)||[])[1]||'image/jpeg';
+  const bytes=Uint8Array.from(atob(parts[1]),c=>c.charCodeAt(0));
+  const ext=mime.includes('png')?'png':mime.includes('webp')?'webp':'jpg';
+  const path=`${Date.now()}-${Math.random().toString(36).slice(2)}.${ext}`;
+  const {error}=await db.storage.from('unitb-foto').upload(path,new Blob([bytes],{type:mime}),{contentType:mime,upsert:false});
+  if(error) throw error;
+  return db.storage.from('unitb-foto').getPublicUrl(path).data.publicUrl;
+ }
+ if(Array.isArray(value)) return Promise.all(value.map(uploadImages));
+ if(value && typeof value==='object'){const out={};for(const [k,v] of Object.entries(value))out[k]=await uploadImages(v);return out;}
+ return value;
+}
+async function save(){
+ try{localStorage.setItem('ub-v2',JSON.stringify(S));}catch(e){}
+ if(!ADM || !remoteReady) return;
+ clearTimeout(saveTimer);
+ saveTimer=setTimeout(async()=>{
+  try{
+   const clean=await uploadImages(S);
+   S=clean; localStorage.setItem('ub-v2',JSON.stringify(S));
+   const {error}=await db.from('unitb_site').update({content:S,updated_at:new Date().toISOString()}).eq('id',1);
+   if(error) throw error;
+   toast('Perubahan tersimpan untuk semua perangkat');
+  }catch(e){console.error(e);toast('Gagal menyimpan ke database: '+(e.message||'periksa koneksi'));}
+ },500);
+} 
+async function loadRemote(){
+ const {data,error}=await db.from('unitb_site').select('content').eq('id',1).single();
+ if(error) throw error;
+ const remote=data?.content;
+ if(remote && Object.keys(remote).length){S=remote;}
+ else if(ADM){await save();}
+ remoteReady=true;
+}
+function toast(t){const e=$('#toast');e.textContent=t;gsap.fromTo(e,{opacity:0,y:20},{opacity:1,y:0,duration:.4,yoyo:true,repeat:1,repeatDelay:2})}
+const bg=i=>`linear-gradient(145deg,hsl(${18+(i*9)%24} 14% ${88-(i*3)%9}%),hsl(28 10% ${74-(i*2)%6}%))`;
+const sty=(img,i)=>img?`background-image:url('${img}')`:`background-image:${bg(i)}`;
+const sp=t=>t.split(' ').map(w=>`<span class="w">${[...w].map(c=>`<i>${esc(c)}</i>`).join('')}</span>`).join(' ');
+const ini=n=>n.split(' ').slice(0,2).map(x=>x[0]).join('');
+const shrink=(file,ar)=>new Promise(r=>{const rd=new FileReader;rd.onload=()=>{const im=new Image;im.onload=()=>{let sx=0,sy=0,sw=im.width,sh=im.height;if(ar){if(sw/sh>ar){sw=sh*ar;sx=(im.width-sw)/2}else{sh=sw/ar;sy=(im.height-sh)*.2}}const k=Math.min(1,1000/Math.max(sw,sh)),c=document.createElement('canvas');c.width=sw*k;c.height=sh*k;c.getContext('2d').drawImage(im,sx,sy,sw,sh,0,0,c.width,c.height);r(c.toDataURL('image/jpeg',.78))};im.src=rd.result};rd.readAsDataURL(file)});
+const pickFiles=(multi,ar)=>new Promise(res=>{if(!ADM){toast('Masuk sebagai admin untuk mengubah');return res([])}const f=document.createElement('input');f.type='file';f.accept='image/*';f.multiple=!!multi;f.onchange=()=>Promise.all([...f.files].map(x=>shrink(x,ar))).then(res);f.click()});
+let lenis;const sc=y=>{if(lenis)return lenis.scrollTo(y,{duration:1.6,easing:t=>1-Math.pow(1-t,4)});const o={y:scrollY};gsap.to(o,{y,duration:1.6,ease:'power3.inOut',onUpdate:()=>scrollTo(0,o.y)})};
+/* ===== REVEAL ===== */
+function reveal(root,scroller){const o={scroller,start:'top 90%',toggleActions:'play none none reverse'};
+$$('.rv',root).forEach(e=>gsap.from(e,{y:60,opacity:0,duration:1.1,ease:'power3.out',scrollTrigger:{...o,trigger:e}}));
+$$('.big.sp',root).forEach(h=>gsap.from($$('i',h),{yPercent:115,rotation:5,stagger:.05,duration:1.2,ease:'expo.out',scrollTrigger:{...o,trigger:h}}));
+$$('.ln2',root).forEach(e=>gsap.from(e,{scaleX:0,transformOrigin:'left',duration:1.4,ease:'expo.out',scrollTrigger:{...o,trigger:e}}));
+$$('.rev',root).forEach(e=>gsap.fromTo(e,{clipPath:'inset(100% 0 0 0)'},{clipPath:'inset(0% 0 0 0)',duration:1.3,ease:'expo.out',scrollTrigger:{...o,trigger:e,start:'top 88%'}}))}
+/* ===== TEAM ===== */
+function buildTeam(){const by=r=>Object.keys(ROLE).find(n=>ROLE[n]===r),K=by('Komting'),P=['Bendahara','Sekretaris'].map(by).filter(Boolean),R=MEMBERS.filter(n=>n!==K&&!P.includes(n));
+const c=n=>{const i=MEMBERS.indexOf(n);return `<div class="tw"><article class="mc tilt" data-i="${i}"><div class="im" style="${sty(S.m[i],i)}">${S.m[i]?'':ini(n)}</div><h4><b>${esc(n)}</b><span>${ROLE[n]||'Anggota'}</span></h4><button class="ed" title="Ganti foto">+</button></article></div>`},
+l=t=>`<div class="kl"><span></span><small>${t}</small><span></span></div>`;
+$('#grid').innerHTML=(K?l('Komting')+`<div class="rw k">${c(K)}</div>`:'')+(P.length?l('Bendahara &amp; Sekretaris')+`<div class="rw p">${P.map(c).join('')}</div>`:'')+l('Anggota')+`<div class="rw m">${R.map(c).join('')}</div>`}
+const dTop=e=>{let y=0;while(e){y+=e.offsetTop;e=e.offsetParent}return y};
+function teamAnim(){const cols=parseInt(getComputedStyle($('#grid')).getPropertyValue('--c'))||4;
+$$('.tw').forEach((el,i)=>{const st=()=>Math.max(dTop(el)-innerHeight*1.06,$('#spacer').offsetHeight-innerHeight*.28)+(i%cols)*innerHeight*.02;
+gsap.fromTo(el,{opacity:0,y:140,rotationX:-35,scale:.85,transformPerspective:900},{opacity:1,y:0,rotationX:0,scale:1,ease:'power3.out',scrollTrigger:{trigger:el,start:st,end:()=>st()+innerHeight*.5,scrub:.6,invalidateOnRefresh:true}})})}
+let htl;
+function heroAnim(){if(htl){htl.scrollTrigger&&htl.scrollTrigger.kill();htl.kill()}
+const s1=$('#s1'),s2=$('#s2'),H=innerHeight,fs=parseFloat(getComputedStyle(s1).fontSize),f2=parseFloat(getComputedStyle(s2).fontSize),
+t1=Math.max(Math.min(innerWidth*.07,84),40),k=t1/fs,t2=Math.max(Math.min(innerWidth*.062,88),34),k2=t2/f2,top=Math.max(H*.06,50),h1=t1*.95,h2=t2*.95,
+y1=-H/2+top+h1/2,y2=-H/2+top+h1+h2/2+4,total=top+h1+h2+14;
+gsap.set(s1,{xPercent:-50,yPercent:-50,y:0,scale:1});gsap.set(s2,{xPercent:-50,yPercent:-50,y:0,scale:1});gsap.set($$('#s2 i'),{yPercent:120});
+gsap.set('#sbg',{height:total+36,opacity:0});gsap.set('#tagw,#hint',{opacity:1,y:0});gsap.set('#orbw',{scale:1,opacity:1});
+document.documentElement.style.setProperty('--top',(total+40)+'px');
+htl=gsap.timeline({scrollTrigger:{trigger:'#spacer',start:'top top',end:'bottom top',scrub:.4}})
+.to('#hint',{opacity:0,y:30,duration:.05},0).to('#tagw',{opacity:0,y:-30,duration:.08},0)
+.to('#orbw',{scale:2.2,opacity:0,duration:.7,ease:'none'},0)
+.to(s1,{y:y1,scale:k,duration:.3,ease:'power2.inOut'},0)
+.to($$('#s2 i'),{yPercent:0,stagger:.02,duration:.2,ease:'power3.out'},.22)
+.to('#sbg',{opacity:1,duration:.12},.5)
+.to(s2,{y:y2,scale:k2,duration:.4,ease:'power3.inOut'},.6)}
+/* ===== VISI & KEGIATAN ===== */
+function renderVisi(anim){const ce=ADM?' contenteditable="true"':'';
+$('#visi').innerHTML=`<div class="lbl rv"><span class="ln2"></span><small>VISI &amp; MISI</small></div><div class="vm"><div><h2 class="big sp">${sp('Visi')}</h2><p class="vt rv"${ce} data-v="1" data-ph="Tulis visi...">${esc(S.v.visi)}</p></div><div class="mm2"><h2 class="big sp">${sp('Misi')}</h2><ol>${S.v.misi.map((m,i)=>`<li class="rv"><span class="ln2"></span><b>${String(i+1).padStart(2,'0')}</b><p${ce} data-m="${i}" data-ph="Tulis misi...">${esc(m)}</p><button class="ed2" data-delm="${i}" title="Hapus">&#10005;</button></li>`).join('')}</ol><button class="btn r ao" data-addm>+ Tambah misi</button></div></div>`;
+if(anim)reveal($('#visi'))}
+function figs(a){const ce=ADM?' contenteditable="true"':'';return a.ph.map((p,j)=>`<figure class="mg${j?'':' lead'}${j&&j%2?' alt':''}"><div class="rev"><div class="im" style="${sty(p.img,j+1)}"></div><div class="ac"><button data-rp="${j}" title="Ganti foto">&#8635;</button><button data-dp="${j}" title="Hapus foto">&#10005;</button></div></div><figcaption class="rv"><div><small>No. ${String(j+1).padStart(2,'0')}</small><h3${ce} data-f="h" data-j="${j}" data-ph="Judul foto">${esc(p.h)}</h3></div><p${ce} data-f="x" data-j="${j}" data-ph="Keterangan foto">${esc(p.x)}</p></figcaption></figure>`).join('')}
+let PT=[];function para(){PT.forEach(t=>t.kill());PT=[];$$('.mg .rev').forEach(r=>{const t=gsap.fromTo($('.im',r),{yPercent:-7},{yPercent:7,ease:'none',scrollTrigger:{trigger:r,start:'top bottom',end:'bottom top',scrub:true}});t.scrollTrigger&&PT.push(t.scrollTrigger)})}
+function renderKeg(anim){const ce=ADM?' contenteditable="true"':'';
+$('#kl').innerHTML=S.k.length?S.k.map(a=>`<article class="ka" data-id="${a.id}"><header class="ah"><small class="rv"><span${ce} data-f="d" data-ph="Tanggal">${esc(a.d)}</span> &middot; ${a.ph.length} FOTO</small><h3 class="kh rv"${ce} data-f="t" data-ph="Judul kegiatan">${esc(a.t)}</h3></header>${figs(a)}<div class="ab ao"><button class="btn r" data-ap>+ Tambah foto</button><button class="btn" data-ad>Hapus kegiatan</button></div></article>`).join(''):'<p class="em">Belum ada kegiatan.</p>';
+if(anim)reveal($('#keg'));para()}
+/* ===== MODAL ===== */
+function modal(html,cls,fly){const m=document.createElement('div');m.className='modal';m.setAttribute('data-lenis-prevent','');m.innerHTML=`<div class="mb ${cls||''}">${html}<button class="bkm" aria-label="Kembali">&larr;</button></div>`;document.body.append(m);const b=$('.mb',m);
+gsap.from(m,{opacity:0,duration:.5});if(!fly)gsap.from(b,{y:60,scale:.94,opacity:0,duration:.8,ease:'expo.out'});
+let done=false;const kd=e=>e.key==='Escape'&&close(),close=()=>{if(done)return;done=true;document.removeEventListener('keydown',kd);o.onclose&&o.onclose();gsap.to(m,{opacity:0,duration:.45});gsap.to(b,{scale:.9,y:40,duration:.45,ease:'power2.in',onComplete:()=>m.remove()})},o={m,b,close};
+document.addEventListener('keydown',kd);$('.bkm',m).onclick=close;m.onclick=e=>e.target===m&&close();return o}
+const ask=msg=>new Promise(r=>{const o=modal(`<div class="tx"><h2 style="font-size:30px">${esc(msg)}</h2><div class="pn"><button class="btn r" id="y">Ya</button><button class="btn" id="n">Batal</button></div></div>`,'lm');$('#y',o.b).onclick=()=>{r(true);o.close()};$('#n',o.b).onclick=()=>{r(false);o.close()};o.onclose=()=>r(false)});
+function openMember(card){const i=+card.dataset.i,n=MEMBERS[i],ce=ADM?'contenteditable="true"':'',g=(S.g[i]||'').replace('@','');
+const IG='<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".6" fill="currentColor"/></svg>';
+const o=modal(`<div class="im" style="${sty(S.m[i],i)}">${S.m[i]?'':ini(n)}</div><div class="tx"><small>${ROLE[n]||'Anggota'}</small><h2>${esc(n)}</h2><p class="d" id="bo" ${ce} data-ph="Tulis deskripsi diri...">${esc(ADM?(S.b[i]||''):(S.b[i]||'Belum ada deskripsi.'))}</p><div class="igr">${ADM?`<span class="igi">${IG}</span><b id="ig" contenteditable="true" data-ph="username instagram">${esc(g)}</b>`:g?`<a class="igl" target="_blank" rel="noopener" href="https://instagram.com/${esc(g)}" aria-label="Instagram ${esc(g)}">${IG}</a>`:''}</div><button class="btn ao" id="chg">Ganti foto</button></div>`,'mm',true);
+const {m,b}=o,im=$('.im',b),tx=$$('.tx > *',b);gsap.set(b,{opacity:0});gsap.set([...tx,$('.bkm',b)],{opacity:0});
+const r=card.getBoundingClientRect(),t=im.getBoundingClientRect(),c=card.cloneNode(true);document.body.append(c);
+gsap.set(c,{position:'fixed',left:r.left,top:r.top,width:r.width,height:r.height,margin:0,zIndex:95,rotationX:0,rotationY:0,scale:1,opacity:1,y:0,x:0,transformPerspective:1000,pointerEvents:'none'});card.style.visibility='hidden';
+o.onclose=()=>{card.style.visibility='';c.remove()};
+gsap.timeline().to($('h4',c),{opacity:0,duration:.25},0).to(c,{left:t.left,top:t.top,width:t.width,height:t.height,borderRadius:0,rotationY:360,duration:1.1,ease:'power3.inOut'},0)
+.add(()=>{gsap.set(b,{opacity:1});c.remove();gsap.from(b,{scale:1.0,duration:.01})})
+.to($('.bkm',b),{opacity:1,duration:.4},'>').to(tx,{opacity:1,y:0,startAt:{y:40},stagger:.1,duration:.8,ease:'power3.out'},'<');
+$('#chg',b).onclick=async()=>{const [u]=await pickFiles(false,3/4);if(!u)return;S.m[i]=u;save();im.style.backgroundImage=`url('${u}')`;im.textContent='';const t=$('.im',card);t.style.backgroundImage=`url('${u}')`;t.textContent=''};
+if(ADM){$('#bo',b).oninput=e=>{S.b[i]=e.target.textContent;save()};$('#ig',b).oninput=e=>{S.g[i]=e.target.textContent.trim();save()}}}
+/* ===== LOGIN ===== */
+function setAdm(v){ADM=v;document.body.classList.toggle('adm',v);renderVisi(false);renderKeg(false);buildTeam()}
+function loginM(){if(ADM){const o=modal(`<div class="tx"><small>ADMIN</small><h2 style="font-size:34px">Keluar dari mode admin?</h2><div class="pn"><button class="btn r" id="y">Keluar</button><button class="btn" id="n">Batal</button></div></div>`,'lm');$('#y',o.b).onclick=async()=>{await db.auth.signOut();currentUser=null;setAdm(false);o.close();toast('Keluar dari mode admin')};$('#n',o.b).onclick=o.close;return}
+const o=modal(`<div class="tx"><small>ADMIN</small><h2>Masuk</h2><label class="fl"><span>Email admin</span><input id="lu" type="email" placeholder="Email admin" autocomplete="username"></label><label class="fl"><span>Password</span><input id="lp" type="password" placeholder="Password" autocomplete="current-password"></label><p class="d" id="le" role="alert" style="color:var(--rd);font-weight:700"></p><button type="button" class="btn r" id="lg">Masuk</button></div>`,'lm'),b=o.b;
+const go=async()=>{const email=$('#lu',b).value.trim(),password=$('#lp',b).value,er=$('#le',b);if(!email||!password){er.textContent='Isi email dan password.';return}
+ const {data,error}=await db.auth.signInWithPassword({email,password});
+ if(error){er.textContent='Login gagal. Periksa email dan password.';return}
+ if(data.user.id!==ADMIN_UID){await db.auth.signOut();er.textContent='Akun ini bukan admin website.';return}
+ currentUser=data.user;ADM=true;setAdm(true);o.close();
+ try{const {data:row,error:readErr}=await db.from('unitb_site').select('content').eq('id',1).single();if(readErr)throw readErr;
+  if(row?.content&&Object.keys(row.content).length){S=row.content;localStorage.setItem('ub-v2',JSON.stringify(S));buildTeam();renderVisi(false);renderKeg(false);}
+  else {remoteReady=true;await save();}
+  remoteReady=true;toast('Berhasil masuk sebagai admin');
+ }catch(err){console.error(err);toast('Login berhasil, tetapi data gagal dimuat: '+err.message)}
+};
+$('#lg',b).onclick=go;$$('input',b).forEach(i=>i.onkeydown=e=>{if(e.key==='Enter'){e.preventDefault();go()}});
+setTimeout(()=>$('#lu',b).focus(),80)}
+/* ===== TAMBAH KEGIATAN ===== */
+function addAct(){if(!ADM)return;let imgs=[];
+const o=modal(`<div class="tx"><small>ADMIN</small><h2 style="font-size:36px">Kegiatan baru</h2><label class="fl"><span>Judul kegiatan</span><input id="at" placeholder="Judul kegiatan"></label><label class="fl"><span>Tanggal</span><input id="ad" placeholder="mis. 12 Agustus 2026"></label><button type="button" class="btn" id="af">+ Pilih foto (boleh banyak)</button><div id="al"></div><button type="button" class="btn r" id="as">Simpan kegiatan</button></div>`,'lm'),b=o.b;
+$('#af',b).onclick=async()=>{const n=await pickFiles(true);if(!n.length)return;imgs.push(...n);
+$('#al',b).innerHTML=imgs.map((u,j)=>`<div class="pr2"><img src="${u}" alt=""><div><input data-h placeholder="Judul foto ${j+1}"><textarea data-x rows="2" placeholder="Deskripsi foto"></textarea></div></div>`).join('')};
+$('#as',b).onclick=()=>{const t=$('#at',b).value.trim();if(!t)return toast('Isi judul kegiatan dulu');
+const hs=$$('[data-h]',b),xs=$$('[data-x]',b);S.k.unshift({id:'k'+Date.now(),t,d:$('#ad',b).value.trim()||'Tanggal kegiatan',ph:imgs.map((u,j)=>({img:u,h:hs[j].value.trim()||'Judul foto',x:xs[j].value.trim()||lorem}))});save();o.close();renderKeg(false);
+const f=$('.ka');gsap.from(f,{y:80,opacity:0,scale:.92,duration:1.1,ease:'expo.out',delay:.4});ScrollTrigger.refresh();sc($('#keg').getBoundingClientRect().top+scrollY);toast('Kegiatan ditambahkan')}}
+/* ===== EVENTS ===== */
+document.addEventListener('click',async e=>{const t=e.target;
+if(t.closest('[data-login]'))return loginM();
+if(t.closest('[data-hint]'))return sc($('#spacer').offsetHeight*.9);
+if(t.closest('#up'))return sc(0);
+const mc=t.closest('.mc');if(mc){if(t.closest('.ed')){const [u]=await pickFiles(false,3/4);if(u){S.m[+mc.dataset.i]=u;save();const im=$('.im',mc);im.style.backgroundImage=`url('${u}')`;im.textContent=''}return}return openMember(mc)}
+const ka=t.closest('.ka');if(ka){const a=S.k.find(x=>x.id===ka.dataset.id);if(!a||!ADM)return;
+if(t.closest('[data-ap]')){const im=await pickFiles(true);if(!im.length)return;im.forEach(u=>a.ph.push({img:u,h:'Judul foto',x:lorem}));save();renderKeg(false);return}
+const rp=t.closest('[data-rp]');if(rp){const [u]=await pickFiles(false);if(u){a.ph[+rp.dataset.rp].img=u;save();renderKeg(false)}return}
+const dp=t.closest('[data-dp]');if(dp){if(await ask('Hapus foto ini?')){a.ph.splice(+dp.dataset.dp,1);save();renderKeg(false)}return}
+if(t.closest('[data-ad]')){if(await ask('Hapus kegiatan ini?')){S.k=S.k.filter(x=>x!==a);save();renderKeg(false);ScrollTrigger.refresh()}}return}
+if(t.closest('[data-addk]'))return addAct();
+if(t.closest('[data-addm]')){S.v.misi.push('Tulis misi baru...');save();renderVisi(false);return}
+const dm=t.closest('[data-delm]');if(dm){S.v.misi.splice(+dm.dataset.delm,1);save();renderVisi(false)}});
+document.addEventListener('input',e=>{const t=e.target;const ka=t.closest&&t.closest('.ka');if(ka&&t.dataset.f){const a=S.k.find(x=>x.id===ka.dataset.id);if(a){if(t.dataset.j!==undefined)a.ph[+t.dataset.j][t.dataset.f]=t.textContent;else a[t.dataset.f]=t.textContent;save()}return}if(t.dataset.v){S.v.visi=t.textContent;save()}else if(t.dataset.m!==undefined){S.v.misi[+t.dataset.m]=t.textContent;save()}});
+let last=null;const rs=()=>{if(last){gsap.to(last,{rotationX:0,rotationY:0,scale:1,duration:.7,ease:'power3.out'});last=null}};
+const HV=matchMedia('(hover:hover)').matches;
+HV&&document.addEventListener('pointermove',e=>{const t=e.target.closest&&e.target.closest('.tilt');if(last&&last!==t)rs();
+if(!t||t.style.visibility==='hidden')return;last=t;const r=t.getBoundingClientRect(),x=(e.clientX-r.left)/r.width,y=(e.clientY-r.top)/r.height;
+gsap.to(t,{rotationY:(x-.5)*22,rotationX:(.5-y)*22,scale:1.05,transformPerspective:900,duration:.4,ease:'power2.out'});t.style.setProperty('--mx',x*100+'%');t.style.setProperty('--my',y*100+'%')});
+['pointerup','pointercancel'].forEach(n=>document.addEventListener(n,e=>e.pointerType!=='mouse'&&rs()));
+const gx=gsap.quickTo('#glow','x',{duration:.8}),gy=gsap.quickTo('#glow','y',{duration:.8});HV&&addEventListener('pointermove',e=>{gx(e.clientX);gy(e.clientY)});
+/* ===== INIT ===== */
+async function initApp(){
+ try{const {data}=await db.auth.getSession();currentUser=data.session?.user||null;ADM=!!(currentUser&&currentUser.id===ADMIN_UID);if(currentUser&&!ADM)await db.auth.signOut();}catch(e){console.warn(e)}
+ try{await loadRemote();}catch(e){console.error(e);toast('Tidak dapat memuat database. Periksa URL, key, dan kebijakan RLS.');}
+ try{history.scrollRestoration='manual'}catch(e){}scrollTo(0,0);
+$('#s1').innerHTML=sp('UNIT B');$('#s2').innerHTML=sp('OUR TEAM');document.body.classList.toggle('adm',ADM);gsap.set('#glow',{x:innerWidth/2,y:innerHeight/3});
+$('#kh').innerHTML=sp('Kegiatan')+' <span style="color:var(--rd)">'+sp('Kami')+'</span>';
+ScrollTrigger.config({ignoreMobileResize:true});if(window.Lenis&&matchMedia('(hover:hover)').matches){lenis=new Lenis({duration:1.1,smoothWheel:true});lenis.on('scroll',ScrollTrigger.update);gsap.ticker.add(t=>lenis.raf(t*1000));gsap.ticker.lagSmoothing(0)}
+gsap.to('#pg',{scaleX:1,ease:'none',scrollTrigger:{start:0,end:'max',scrub:.3}});
+buildTeam();renderVisi(true);renderKeg(true);reveal($('footer'));teamAnim();heroAnim();
+ScrollTrigger.create({trigger:'#visi',start:'top 92%',onEnter:()=>gsap.to('#stack',{autoAlpha:0,duration:.4}),onLeaveBack:()=>gsap.to('#stack',{autoAlpha:1,duration:.4})});
+gsap.from($$('#s1 i'),{yPercent:120,rotationX:-80,transformOrigin:'50% 100%',stagger:.1,duration:1.4,ease:'expo.out'});
+gsap.from('#tag',{opacity:0,y:24,letterSpacing:'.08em',duration:1.5,delay:.9,ease:'expo.out'});gsap.from('.hi',{opacity:0,y:24,duration:1,delay:1.6});gsap.from('.orb',{scale:.3,opacity:0,duration:2,ease:'power3.out'});
+let rt,lw=innerWidth;addEventListener('resize',()=>{if(innerWidth===lw)return;lw=innerWidth;clearTimeout(rt);rt=setTimeout(()=>{heroAnim();ScrollTrigger.refresh()},250)});
+(document.fonts&&document.fonts.ready||Promise.resolve()).then(()=>{heroAnim();ScrollTrigger.refresh()});
+ // Perubahan dari perangkat lain akan diterapkan otomatis pada pengunjung.
+ db.channel('unitb-site-live').on('postgres_changes',{event:'UPDATE',schema:'public',table:'unitb_site',filter:'id=eq.1'},payload=>{
+  if(ADM || !payload.new?.content) return;
+  S=payload.new.content;
+  try{localStorage.setItem('ub-v2',JSON.stringify(S))}catch(e){}
+  buildTeam();renderVisi(false);renderKeg(false);ScrollTrigger.refresh();
+ }).subscribe();
+}
+initApp();
+</script></body></html>
